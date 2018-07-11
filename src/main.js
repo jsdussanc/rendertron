@@ -119,7 +119,7 @@ app.get('/render/:url(*)', async(request, response) => {
     const result = await renderer.serialize(request.params.url, request.query, config);
     response.set('x-renderer', 'rendertron');
     response.status(result.status).send(result.body);
-    track('render', now() - start);
+    track('render:' + request.params.url, now() - start);
   } catch (err) {
     response.status(400).send('Cannot render requested URL');
     console.error('Cannot render requested URL');
@@ -142,7 +142,7 @@ app.get('/screenshot/:url(*)', async(request, response) => {
       'Content-Length': img.length
     });
     response.end(img);
-    track('screenshot', now() - start);
+    track('screenshot' + request.params.url, now() - start);
   } catch (err) {
     response.status(400).send('Cannot render requested URL');
     console.error('Cannot render requested URL');
