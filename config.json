@@ -1,6 +1,6 @@
 {
 "analyticsTrackingId" :"UA-122242769-1",
-"cache" : false,
+"cache" : true,
 "comment":"cache only in GoogleAppEngine, renderOnly: ['https://www.qmercas.co/'] ",
 "renderOnly": ["https://www.qmercas.co/", "https://staging.qmercas.inkrementaldev.co"],
 "debug" : true

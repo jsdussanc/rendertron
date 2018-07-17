@@ -26,7 +26,8 @@ const compression = require('compression');
 const express = require('express');
 const now = require('performance-now');
 const uuidv4 = require('uuid/v4');
-const cache = require('./cache');
+//const cache = require('./cache');
+const cache = require('./cache-memory');
 const renderer = require('./renderer');
 
 const app = express();

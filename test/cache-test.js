@@ -20,7 +20,8 @@ const test = require('ava');
 const request = require('supertest');
 const express = require('express');
 const compression = require('compression');
-const cache = require('../src/cache.js');
+//const cache = require('../src/cache.js');
+const cache = require('../src/cache-memory.js');
 
 const app = express();
 const server = request(app);
