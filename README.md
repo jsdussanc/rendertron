@@ -148,7 +148,8 @@ npm run start
 ### Using the Docker image
 After installing docker, build and run the docker image
 ```bash
-docker build -t rendertron . --no-cache=true
+gti pull && 
+docker build -t rendertron . &&
 docker run -d -p 5001:8080 --name rendertron-container rendertron
 ```
 
@@ -175,12 +176,12 @@ In the case where your kernel lacks user namespace support or are receiving a `E
 [Recommended] Start a container with the built image using Jessie Frazelle' seccomp profile for Chrome:
 ```bash
 wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O ~/chrome.json
-docker run -it -p 8080:8080 --security-opt seccomp=$HOME/chrome.json --name rendertron-container rendertron
+docker run -it -p 5001:8080 --security-opt seccomp=$HOME/chrome.json --name rendertron-container rendertron
 ```
 
 Start a container with the built image using SYS_ADMIN:
 ```bash
-docker run -it -p 8080:8080 --cap-add SYS_ADMIN --name rendertron-container rendertron
+docker run -it -p 5001:8080 --cap-add SYS_ADMIN --name rendertron-container rendertron
 ```
 
 To check if your kernel is compatible with Docker, follow [Docker's instructions](https://docs.docker.com/engine/installation/linux/linux-postinstall/#troubleshooting). For CentOS 7, which doesn't have user namespaces enabled, you will [need to enable them](https://github.com/GoogleChrome/rendertron/issues/96#issuecomment-328305721).
